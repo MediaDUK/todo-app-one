@@ -4,14 +4,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const config = require('./config/database')
+const config = require('./config/database');
+const controllerTodo = require('./controllers/todos');
+const app = express();
+const port = 3000;
+
+// connect to DB
 mongoose.connect(config.database, { useNewUrlParser: true })
 
-//Initialize our app variable
-const app = express();
-
-//Declaring Port
-const port = 3000;
 
 //Middleware for CORS
 app.use(cors());
@@ -25,15 +25,12 @@ app.use(bodyParser.json());
 */
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
-
 app.get('/', (req,res) => {
   res.send("Test page");
 })
 
-
+//Routing all HTTP requests to /todos to todosController
+app.use('/todos', controllerTodo)
 
 //Listen to port 3000
 app.listen(port, () => {
