@@ -4,6 +4,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const config = require('./config/database')
+mongoose.connect(config.database, { useNewUrlParser: true })
 
 //Initialize our app variable
 const app = express();
