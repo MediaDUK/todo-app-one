@@ -32,7 +32,7 @@ router.post('/', (req, res, next) => {
     } else {
       res.json({ success: true, message: "Added successfully." });
     }
-      
+
   });
 });
 
