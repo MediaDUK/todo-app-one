@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 
 const TodoListSchema = mongoose.Schema({
   title: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   description: {
-    type:  String,
+    type: String,
     required: true
   },
   priority: {
-      type: String,
-      required: true,
-      enum: ['High', 'Medium', 'Low']
+    type: String,
+    required: true,
+    enum: ['High', 'Medium', 'Low']
   }
 });
 
@@ -30,6 +30,6 @@ module.exports.addTodo = (newTodo, callback) => {
 
 //remove by id
 module.exports.deleteTodoById = (id, callback) => {
-  let query = {_id: id};
-  TodoList.remove(query,callback)
+  let query = { _id: id };
+  TodoList.remove(query, callback)
 }

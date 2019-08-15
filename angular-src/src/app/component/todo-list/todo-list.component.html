@@ -1,0 +1,21 @@
+<h2>Todo List App </h2>
+<table id="table">
+  <thead>
+    <tr>
+      <th>Priority Level</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th> Delete </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todos">
+      <td>{{todo.priority}}</td>
+      <td>{{todo.title}}</td>
+      <td>{{todo.description}}</td>
+      <td>
+        <button type="button" (click)="deleteTodo(todo); $event.stopPropagation();">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
