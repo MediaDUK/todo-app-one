@@ -15,18 +15,20 @@ export class TodoListComponent implements OnInit {
     this.loadTodos();
   }
 
-  public loadTodos() {
+  public onAddTodo(newTodo) {
+    this.todos = this.todos.concat(newTodo);
+    this.loadTodos();
+  }
 
-    //Get all lists from server and update the lists property
+  public loadTodos() {
     this.todoServ.getAllTodos().subscribe(res => this.todos = res)
   }
 
-  //deleteTodo. The deleted list is being filtered out using the .filter method
   public deleteTodo(todo: Todo) {
     this.todoServ.deleteTodo(todo._id).subscribe(
       response => this.todos = this.todos.filter(todos => todos !== todo))
   }
-
 }
+
 
 

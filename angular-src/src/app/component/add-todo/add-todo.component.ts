@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../../../../../models/Todo';
 import { TodoService } from '../../service/todo.service'
 
@@ -12,7 +12,13 @@ export class AddTodoComponent implements OnInit {
   private newTodo: Todo;
   constructor(private todoServ: TodoService) { }
 
+  @Output() addTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+
   ngOnInit() {
+    this.clearForm()
+  }
+
+  public clearForm() {
     this.newTodo = {
       _id: '',
       title: '',
@@ -23,14 +29,13 @@ export class AddTodoComponent implements OnInit {
 
   public onSubmit() {
     this.todoServ.addTodo(this.newTodo).subscribe(
-      (response: any) => {
-        if (response.success == true) {
-          //If success, update the view-list component
-          console.log('response', response)
-
+      response => {
+        const res = JSON.parse(response);
+        if (res.success == true) {
+          this.addTodo.emit(this.newTodo);
+          this.clearForm()
         }
       }
     );
-
   }
 }

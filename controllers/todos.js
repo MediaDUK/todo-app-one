@@ -48,9 +48,9 @@ router.post('/', (req, res, next) => {
 
 //DELETE HTTP method to /todo:[id:int]
 router.delete('/:id', (req, res, next) => {
-  //id of the todo to be deleted
   const id = req.params.id;
-  console.log('id :', id)
+
+  console.log('id ', id)
   //Call the model method deleteListById
   todolist.deleteTodoById(id, (err, todo) => {
     if (err) {

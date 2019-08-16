@@ -20,24 +20,19 @@ export class TodoService {
   }
 
   public deleteTodo(todoId: string) {
+    console.log('todoId', todoId)
     let URI = `${this.serverApi}/todos/${todoId}`;
     let headers = new HttpHeaders;
     headers.append('Content-Type', 'application/json');
-    return this.http.delete(URI, { headers }).pipe(map((res: any) => {
-      console.log('res', res)
-      // res.json()
-    }));
+    return this.http.delete(URI, { headers }).pipe(map((res: any) => JSON.stringify(res)));
   }
 
   public addTodo(todo: Todo) {
     let URI = `${this.serverApi}/todos/`;
     let headers = new HttpHeaders;
-    let body = JSON.stringify({ title: todo.title, description: todo.description, priority: todo.priority });
+    let body = { title: todo.title, description: todo.description, priority: todo.priority };
     headers.append('Content-Type', 'application/json');
     return this.http.post(URI, body, { headers: headers })
-      .pipe(map((res: any) => {
-        console.log('res', res)
-        // res.json() 
-      }));
+      .pipe(map((res: any) => JSON.stringify(res)));
   }
 }
