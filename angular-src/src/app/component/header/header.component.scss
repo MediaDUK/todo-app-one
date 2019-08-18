@@ -5,12 +5,20 @@
   position: relative;
   background: $color-white;
 
-  &-title {
-    color: $color-black;
-  }
+  &-wrap {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    justify-items: center;
+    margin: 0 $grid-px-15;
 
-  &-burger {
-    color: $color-orange;
+    &-title {
+      color: $color-black;
+    }
+
+    &-burger {
+      color: $color-orange;
+    }
   }
 
   &-bar-bottom {
@@ -20,4 +28,8 @@
     bottom: 0;
     @include add-linear-gradient('horizontal', $color-orange, $color-fuschia);
   }
+}
+
+.nav {
+  display: none;
 }
