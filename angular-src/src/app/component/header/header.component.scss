@@ -32,5 +32,52 @@
 }
 
 .nav {
-  display: none;
+  position: absolute;
+  transform: translateX(100%);
+  @include add-linear-gradient('vertical', $color-orange, $color-fuschia);
+  width: 100%;
+  height: 100%;
+
+  &.slide-in {
+    -webkit-animation: slide-in 0.5s forwards;
+    animation: slide-in 0.5s forwards;
+  }
+
+  &.slide-out-left {
+    -webkit-animation: slide-out-left 0.5s forwards;
+    animation: slide-out-left 0.5s forwards;
+  }
+
+  &.slide-out-right {
+    -webkit-animation: slide-out-right 0.5s forwards;
+    animation: slide-out-right 0.5s forwards;
+  }
+}
+
+
+
+@keyframes slide-in {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }

@@ -21,7 +21,7 @@
   </div>
   <div class="header-bar-bottom"></div>
 </header>
-<nav class="nav">
+<nav class="nav" [class.slide-in]="menuOpen" [class.slide-out-right]="!menuOpen">
   <a href="">Calendar</a>
   <a href="">Completed</a>
   <a href="">Deleted</a>

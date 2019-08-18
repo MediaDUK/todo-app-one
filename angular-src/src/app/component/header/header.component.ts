@@ -8,24 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   title = 'Todo App One';
 
-  menuOpen = false;
+  public menuOpen = false
   constructor() { }
 
   ngOnInit() {
+
   }
 
-  animateHamburger(open: boolean) {
-    console.log(`Menu is open: ${open}`);
-    if (open) {
+  animateHamburger() {
 
-    } else {
-
-    }
   }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen
-    this.animateHamburger(this.menuOpen)
   }
-
 }
