@@ -1,0 +1,11 @@
+@mixin add-linear-gradient($direction, $color-start, $color-end) {
+  @if $direction=='horizontal' {
+    background: -moz-linear-gradient(left, $color-start 0%, $color-end 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, $color-start 0%, $color-end 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, $color-start 0%, $color-end 100%);
+    /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color-start, endColorstr=$color-end, GradientType=1);
+  }
+}
