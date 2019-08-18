@@ -1,22 +1,23 @@
-<h2>Todo List App </h2>
-<table id="table">
-  <thead>
-    <tr>
-      <th>Priority Level</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th> Delete </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let todo of todos">
-      <td>{{todo.priority}}</td>
-      <td>{{todo.title}}</td>
-      <td>{{todo.description}}</td>
+<h2>Current Todos</h2>
+<section class="todos">
+  <div class="todos-bar" *ngFor="let todo of todos">
+    <!-- <span *ngIf="todo.priority === High">High</span>
+    <span *ngIf="todo.priority === Medium">Medium</span>
+    <span *ngIf="todo.priority === Low">Low</span> -->
+
+    <span>{{todo.priority}}</span>
+    <span>{{todo.title}}</span>
+    <!-- <td>{{todo.description}}</td> -->
+    <span>
+      <div>Aug 18</div>
+      <div>10:26AM</div>
+    </span>
+  </div>
+  <!-- 
+  <div class="modal">
       <td>
-        <button type="button" (click)="deleteTodo(todo); $event.stopPropagation();">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+          <button type="button" (click)="deleteTodo(todo); $event.stopPropagation();">Delete</button>
+        </td>
+  </div> -->
+</section>
 <app-add-todo (addTodo)='onAddTodo($event)'></app-add-todo>
