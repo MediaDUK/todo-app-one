@@ -9,3 +9,21 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color-start, endColorstr=$color-end, GradientType=1);
   }
 }
+
+@mixin font($weight) {
+  font-family: 'Roboto', sans-serif;
+
+  @if $weight=='bold' {
+    font-weight: 700;
+  }
+
+  @if $weight=='regular' {
+    font-weight: 400;
+  }
+}
+
+@mixin header-shadow() {
+  -webkit-box-shadow: -2px 8px 7px -3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: -2px 8px 7px -3px rgba(0, 0, 0, 0.15);
+  box-shadow: -2px 8px 7px -3px rgba(0, 0, 0, 0.15);
+}

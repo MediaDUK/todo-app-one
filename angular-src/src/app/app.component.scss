@@ -1,6 +1,9 @@
 @import "vars";
+@import "mixins";
 
 .app-wrap {
+  @include font('regular');
+
   main {
     margin: 0 $grid-px-15;
   }
