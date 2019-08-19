@@ -5,6 +5,7 @@
   @include font('regular');
 
   main {
+    padding-top: 80px;
     margin: 0 $grid-px-15;
   }
 }

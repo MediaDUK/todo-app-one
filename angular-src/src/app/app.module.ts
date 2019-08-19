@@ -10,15 +10,18 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { TodoListComponent } from './component/todo-list/todo-list.component';
 import { AddTodoComponent } from './component/add-todo/add-todo.component';
+import { FooterComponent } from './component/footer/footer.component';
 // service
 import { TodoService } from './service/todo.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TodoListComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
