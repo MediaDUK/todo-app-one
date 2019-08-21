@@ -15,6 +15,7 @@
       "app",
       "camelCase"
     ],
+    "experimentalDecorators": true,
     "component-selector": [
       true,
       "element",

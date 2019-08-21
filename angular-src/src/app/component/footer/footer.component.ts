@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalCreateTodoService } from "../../service/modal-create-todo.service";
 
 @Component({
   selector: 'app-footer',
@@ -7,21 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private modalCreateTodoService: ModalCreateTodoService) { }
+  ngOnInit() { }
 
   public openCalendar() {
     console.log('openCalendar() ----')
   }
 
-  public addTodo() {
-    console.log('addTodo() ----')
+  public openCreateTodoModal() {
+    this.modalCreateTodoService.toggle(true);
   }
 
   public openCurrentTodos() {
     console.log('openCurrentTodos() ----')
   }
-
 }
