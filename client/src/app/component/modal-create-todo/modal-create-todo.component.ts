@@ -28,6 +28,35 @@ export class ModalCreateTodoComponent implements OnInit {
     }
   }
 
+  public setPriorityClassBtns(p: string) {
+    const getClassList = id => document.getElementById(`priority${id}`).classList,
+      disable = (id: string) => {
+        const classList = getClassList(id)
+        classList.add('disable')
+      },
+      enable = (id: string) => {
+        const classList = getClassList(id)
+        classList.remove('disable')
+      }
+    if (p === 'High') {
+      enable('High')
+      disable('Medium')
+      disable('Low')
+    } else if (p === 'Medium') {
+      disable('High')
+      enable('Medium')
+      disable('Low')
+    } else {
+      disable('High')
+      disable('Medium')
+      enable('Low')
+    }
+  }
+  public setPriority(priority: string) {
+    this.newTodo.priority = priority;
+    this.setPriorityClassBtns(priority);
+  }
+
   public createTodo() {
     console.log('createTodo() ----------')
   }

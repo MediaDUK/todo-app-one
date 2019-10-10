@@ -51,6 +51,24 @@
               border: none;
 
             }
+
+            .modal-input-priority {
+              border: none;
+              height: 35px;
+              width: 35px;
+              padding: 0;
+              margin: 0 12px 0 0;
+              border-radius: 100%;
+              text-align: center;
+
+              &.disabled {
+                opacity: 0.3;
+              }
+
+              svg {
+                width: 100%;
+              }
+            }
           }
         }
       }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TodoService } from '../../service/todo.service';
 import { Todo } from '../../../../../models/Todo';
 
@@ -11,8 +11,19 @@ export class TodoListComponent implements OnInit {
   private todos: Todo[] = [];
   constructor(private todoServ: TodoService) { }
 
+  
+
   ngOnInit() {
     this.loadTodos();
+  }
+
+  public renderPriority(cssClass: string):string {
+    // returns correct class name
+    // <!-- <span *ngIf="todo.priority === High">High</span>
+    // <span *ngIf="todo.priority === Medium">Medium</span>
+    // <span *ngIf="todo.priority === Low">Low</span> -->
+    // cssClass
+    return ''
   }
 
   public onAddTodo(newTodo) {
@@ -21,6 +32,8 @@ export class TodoListComponent implements OnInit {
   }
 
   public loadTodos() {
+    // add logic to cache
+    // EX. cachedTodos = Map() above  and only make request if state is larger or one is added
     this.todoServ.getAllTodos().subscribe(res => this.todos = res)
   }
 

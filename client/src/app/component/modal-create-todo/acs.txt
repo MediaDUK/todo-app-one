@@ -1,0 +1,30 @@
+Html5
+Css3
+Sass
+JavaScript (ES5
+ES6)
+Vue.js
+Vuex
+Vuetify
+Webpack
+Babel
+Material Design
+React.js
+Angular
+Typescript
+ESLint
+Jest
+Bootstrap 3 & 4
+jQuery
+Google Maps api
+Google Analytics
+AJAX
+JSON
+RESTful APIs
+SVG
+Web Animations
+Front End Performance
+debugging
+jQuery
+DOM Manipulation
+production web asset creation and optimization
