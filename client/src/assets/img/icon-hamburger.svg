@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="23" viewBox="0 0 22 23">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fea64c"/>
+      <stop offset="1" stop-color="#fe1e9a"/>
+    </linearGradient>
+  </defs>
+  <g id="Hamburger" transform="translate(71.96 98.158) rotate(180)">
+    <rect id="Rectangle_57" data-name="Rectangle 57" width="7" height="6" transform="translate(49.96 92.158)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_58" data-name="Rectangle 58" width="15" height="5" transform="translate(49.96 84.158)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_59" data-name="Rectangle 59" width="22" height="6" transform="translate(49.96 75.158)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

@@ -31,5 +31,5 @@ module.exports.addTodo = (newTodo, callback) => {
 //remove by id
 module.exports.deleteTodoById = (id, callback) => {
   let query = { _id: id };
-  TodoList.remove(query, callback)
+  TodoList.deleteOne(query, callback)
 }

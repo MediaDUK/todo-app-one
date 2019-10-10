@@ -1,0 +1,35 @@
+@import "vars";
+@import "mixins";
+
+.footer {
+  @include add-linear-gradient('vertical', $color-orange, $color-fuschia);
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  &-wrap {
+    max-width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &-btn {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    position: relative;
+    transform: translateY(-30px);
+    background: $color-white;
+  }
+
+  .footer-bar-bottom {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    background: $color-orange-dark;
+  }
+}

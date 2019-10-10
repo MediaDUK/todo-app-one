@@ -1,0 +1,33 @@
+@mixin add-linear-gradient($direction, $color-start, $color-end) {
+  @if $direction=='horizontal' {
+    background: -moz-linear-gradient(left, $color-start 0%, $color-end 100%);
+    background: -webkit-linear-gradient(left, $color-start 0%, $color-end 100%);
+    background: linear-gradient(to right, $color-start 0%, $color-end 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color-start, endColorstr=$color-end, GradientType=1);
+  }
+
+  @if $direction=='vertical' {
+    background: -moz-linear-gradient(top, $color-start 31%, $color-end 100%);
+    background: -webkit-linear-gradient(top, $color-start 31%, $color-end 100%);
+    background: linear-gradient(to bottom, $color-start 31%, $color-end 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color-start, endColorstr=$color-end, GradientType=0);
+  }
+}
+
+@mixin font($weight) {
+  font-family: 'Roboto', sans-serif;
+
+  @if $weight=='bold' {
+    font-weight: 700;
+  }
+
+  @if $weight=='regular' {
+    font-weight: 400;
+  }
+}
+
+@mixin add-shadow() {
+  -webkit-box-shadow: -2px 8px 7px -3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: -2px 8px 7px -3px rgba(0, 0, 0, 0.15);
+  box-shadow: -2px 8px 7px -3px rgba(0, 0, 0, 0.15);
+}

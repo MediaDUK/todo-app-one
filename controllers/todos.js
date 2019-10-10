@@ -10,11 +10,16 @@ router.get('/', (req, res) => {
   // All callbacks in Mongoose use the pattern: callback(error, result). If an error occurs executing the query, the error parameter will contain an error document, and result will be null. If the query is successful, the error parameter will be null, and the result will be populated with the results of the query.
   todolist.getAllTodos((err, todos) => {
     if (err) {
-      res.json({ success: false, message: `Failed to load all todos. Error: ${err}` });
+      res.json({
+        success: false,
+        message: `Failed to load all todos. Error: ${err}`
+      });
     } else {
-      res.write(JSON.stringify({ success: true, todos: todos }, null, 2));
+      res.write(JSON.stringify({
+        success: true,
+        todos: todos
+      }, null, 2));
       res.end();
-
     }
   });
 });
@@ -28,27 +33,40 @@ router.post('/', (req, res, next) => {
   });
   todolist.addTodo(newTodo, (err, todo) => {
     if (err) {
-      res.json({ success: false, message: `Failed to create a new todo. Error: ${err}` });
+      res.json({
+        success: false,
+        message: `Failed to create a new todo. Error: ${err}`
+      });
     } else {
-      res.json({ success: true, message: "Added successfully." });
+      res.json({
+        success: true,
+        message: "Added successfully."
+      });
     }
-
   });
 });
 
 //DELETE HTTP method to /todo:[id:int]
 router.delete('/:id', (req, res, next) => {
-  //id of the todo to be deleted
   const id = req.params.id;
-  console.log('id :', id)
+
+  console.log('id ', id)
   //Call the model method deleteListById
   todolist.deleteTodoById(id, (err, todo) => {
     if (err) {
-      res.json({ success: false, message: `Failed to delete the todo. Error: ${err}` });
+      res.json({
+        success: false,
+        message: `Failed to delete the todo. Error: ${err}`
+      });
     } else if (todo) {
-      res.json({ success: true, message: "Deleted successfully" });
+      res.json({
+        success: true,
+        message: "Deleted successfully"
+      });
     } else {
-      res.json({ success: false });
+      res.json({
+        success: false
+      });
     }
   })
 })

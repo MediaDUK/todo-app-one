@@ -1,0 +1,19 @@
+<h2>Current Todos</h2>
+<section class="todos">
+  <div class="todos-bar" *ngFor="let todo of todos; let even = even; let odd = odd">
+    <span [className]="'priority '+ todo.priority.toLowerCase()"></span>
+    <span>{{todo.title}}</span>
+    <!-- <td>{{todo.description}}</td> -->
+    <span>
+      <div>Aug 18</div>
+      <div>10:26AM</div>
+    </span>
+  </div>
+  <!-- 
+  <div class="modal">
+      <td>
+          <button type="button" (click)="deleteTodo(todo); $event.stopPropagation();">Delete</button>
+        </td>
+  </div> -->
+</section>
+<!-- <app-add-todo (addTodo)='onAddTodo($event)'></app-add-todo> -->

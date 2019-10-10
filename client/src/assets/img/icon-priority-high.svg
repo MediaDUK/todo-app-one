@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" x2="0.087" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fe1e9a"/>
+      <stop offset="1" stop-color="#fea64c"/>
+    </linearGradient>
+    <filter id="icon-priority-h" x="0" y="0" width="46" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.149"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#icon-priority-h)">
+    <path id="icon-priority-h-2" data-name="icon-priority-h" d="M-596-187a13.91,13.91,0,0,1-9.9-4.1A13.907,13.907,0,0,1-610-201a13.909,13.909,0,0,1,4.1-9.9A13.909,13.909,0,0,1-596-215a13.907,13.907,0,0,1,9.9,4.1A13.909,13.909,0,0,1-582-201a13.908,13.908,0,0,1-4.1,9.9A13.908,13.908,0,0,1-596-187Zm-1.641-12.875h4.57V-195h2.344v-11.375h-2.344v4.61h-4.57v-4.61h-2.344V-195h2.344v-4.873Z" transform="translate(619 221)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
