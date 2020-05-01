@@ -9,20 +9,21 @@
   background: $color-white;
   @include add-shadow;
 
-  &-wrap {
+  &-wrap {    
     display: flex;
-    flex-basis: 100%;
-    justify-content: space-between;
-    justify-items: center;
+    justify-content: center;
     margin: 0 $grid-px-15;
+    flex-direction: column;
+  }
 
-    &-title {
-      color: $color-black;
-    }
+  &-title {
+    color: $color-orange-1;
+    text-align: center;
+  }
 
-    &-burger {
-      color: $color-orange;
-    }
+  &-burger {
+    align-self: flex-end;
+    position: absolute;
   }
 
   &-bar-bottom {

@@ -2,10 +2,15 @@
 @import "mixins";
 
 .app-wrap {
-  @include font('regular');
+  @include font("regular");
 
   main {
     padding-top: 80px;
     margin: 0 $grid-px-15;
+    // @media and ( min-width=990px) {
+      
+    // }
+    max-width: 980px;
+    margin: 0 auto;
   }
 }
