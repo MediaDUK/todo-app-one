@@ -1,6 +1,6 @@
 <h2>Current Todos</h2>
 <section class="todos">
-  <div class="todos-bar" *ngFor="let todo of todos; let even = even; let odd = odd">
+  <div class="todos-bar" *ngFor="let todo of todos">
     <span [className]="'priority '+ todo.priority.toLowerCase()"></span>
     <span>{{todo.title}}</span>
     <!-- <td>{{todo.description}}</td> -->
@@ -8,7 +8,7 @@
       <div>Aug 18</div>
       <div>10:26AM</div>
     </span>
-  </div>
+  </div><!-- c -->
   <!-- 
   <div class="modal">
       <td>
