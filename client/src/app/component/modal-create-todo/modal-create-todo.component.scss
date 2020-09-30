@@ -1,6 +1,19 @@
 @import "vars";
 @import "mixins";
 
+$number-of-options: 3;
+$radioWidth: 1 / $number-of-options * 100%;
+@mixin checked() {
+  & + label::before {
+    font-weight: 800;
+    opacity: 1;
+  }
+  & + label::after {
+    border-width: 4px;
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+}
+
 .modal {
   &-create-todo {
     position: fixed;
@@ -20,7 +33,7 @@
         padding: 10px;
         text-align: center;
         @include add-shadow;
-        @include add-linear-gradient('vertical', $color-orange, $color-fuschia);
+        @include add-linear-gradient("vertical", $color-orange, $color-fuschia);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -49,26 +62,145 @@
               border-style: none;
               height: 35px;
               border: none;
-
             }
 
-            .modal-input-priority {
-              border: none;
-              height: 35px;
-              width: 35px;
-              padding: 0;
-              margin: 0 12px 0 0;
-              border-radius: 100%;
-              text-align: center;
-
-              &.disabled {
-                opacity: 0.3;
+            #priority-slider {
+              display: flex;
+              flex-direction: row;
+              align-content: stretch;
+              position: relative;
+              width: 300px;
+              height: 50px;
+              user-select: none;
+              &::before {
+                content: " ";
+                position: absolute;
+                height: 2px;
+                width: 100% * ($number-of-options - 1) / $number-of-options;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #000;
               }
+              input,
+              label {
+                box-sizing: border-box;
+                flex: 1;
+                user-select: none;
+                cursor: pointer;
+              }
+              label {
+                display: inline-block;
+                position: relative;
+                width: $radioWidth;
+                height: 100%;
+                user-select: none;
+                &::before {
+                  content: attr(data-priority);
+                  position: absolute;
+                  left: 50%;
+                  padding-top: 10px;
+                  transform: translate(-50%, 45px);
+                  font-size: 14px;
+                  letter-spacing: 0.4px;
+                  font-weight: 400;
+                  white-space: nowrap;
+                  opacity: 0.85;
+                  transition: all 0.15s ease-in-out;
+                }
+                &::after {
+                  content: " ";
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 30px;
+                  height: 30px;
+                  border: 2px solid #000;
+                  background: #fff;
+                  border-radius: 50%;
+                  pointer-events: none;
+                  user-select: none;
+                  z-index: 1;
+                  cursor: pointer;
+                  transition: all 0.15s ease-in-out;
+                }
+                &:hover::after {
+                  transform: translate(-50%, -50%) scale(1.25);
+                }
+              }
+              input {
+                display: none;
+                &:checked {
+                  & + label::before {
+                    font-weight: 800;
+                    opacity: 1;
+                  }
+                  & + label::after {
+                    border-width: 4px;
+                    transform: translate(-50%, -50%) scale(0.75);
+                  }
+                  ~ #priority-pos {
+                    opacity: 1;
+                  }
+                }
 
-              svg {
-                width: 100%;
+                @for $i from 1 through $number-of-options {
+                  &:nth-of-type(#{$i}):checked ~ #priority-pos {
+                    @if $i == 1 {
+                      left: 0;
+                      @include checked;
+                    }
+                    @if $i == 2 {
+                      left: $radioWidth;
+                      @include checked;
+                    }
+                    @if $i == 3 {
+                      left: $radioWidth * 2;
+                      @include checked;
+                    }
+                  }
+                }
+              }
+              #priority-pos {
+                position: absolute;
+                width: $radioWidth;
+                height: 100%;
+                transition: all 0.15s ease-in-out;
+                left: 0;
+                opacity: 0;
+                z-index: 2;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &::after {
+                  content: "";
+                  height: 12px;
+                  width: 12px;
+                  border-radius: 50%;
+                  background: #000;
+                }
               }
             }
+
+            // .modal-input-priority {
+            //   border: none;
+            //   height: 35px;
+            //   width: 35px;
+            //   padding: 0;
+            //   margin: 0 12px 0 0;
+            //   border-radius: 100%;
+            //   text-align: center;
+
+            //   &.disabled {
+            //     opacity: 0.3;
+            //   }
+
+            //   svg {
+            //     width: 100%;
+            //   }
+            // }
           }
         }
       }
@@ -84,7 +216,11 @@
             color: $color-white;
             border: none;
             @include add-shadow;
-            @include add-linear-gradient('vertical', $color-orange, $color-fuschia);
+            @include add-linear-gradient(
+              "vertical",
+              $color-orange,
+              $color-fuschia
+            );
             width: 70%;
             padding: 10px;
             font-size: 20px;
@@ -109,7 +245,6 @@
     }
   }
 }
-
 
 @keyframes open-modal {
   0% {
